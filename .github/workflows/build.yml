@@ -1,0 +1,51 @@
+name: 🐱 CatOS Rolling CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-bootloader:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Скачиваем код
+      uses: actions/checkout@v4
+
+    - name: Устанавливаем NASM
+      run: |
+        sudo apt update
+        sudo apt install -y nasm
+
+    - name: Компилируем загрузчик CatOS
+      run: |
+        mkdir -p release_assets
+        nasm -f bin src/boot.asm -o release_assets/boot.bin
+
+    - name: Пересоздать тег main
+      shell: bash
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git tag -d main || true
+        git push origin :refs/tags/main || true
+        sleep 3
+        git tag main
+        git push origin refs/tags/main --force
+
+    - name: Загружаем результат в Релиз
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: main
+        files: release_assets/*
+        name: "CatOS - Rolling Release (main)"
+        body: |
+          🐾 Самый свежий бинарник операционной системы CatOS.
+          Тег `main` автоматически пересоздается при каждом пуше в репозиторий.
+          Скачайте `boot.bin` и прошейте через Rufus на флешку (MBR/BIOS).
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

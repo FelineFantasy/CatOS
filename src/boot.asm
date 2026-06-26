@@ -13,11 +13,19 @@
 %endmacro
 
 start:
+    xor ax, ax
+    mov ds, ax
+    mov es, ax
+
+    mov ah, 0x00
+    mov al, 0x03
+    int 0x10
+
     PRINT welcome
     PRINT author
 
 hang:
-	cli
+    cli
     hlt
     jmp hang
 

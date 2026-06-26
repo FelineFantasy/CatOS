@@ -59,6 +59,12 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 
 ## 📦 Changelog
 
+### v1.1.0 (26.06.2026)
+- Added automatic video-mode reset (`int 0x10`) to purge hardware-specific SeaBIOS screen artifacts.
+- Converted `build.sh` line endings to LF for perfect Linux and WSL cross-platform compatibility.
+- Upgraded the `PRINT` macro to support custom 16-color hex palettes natively.
+- Cleaned up root repository structure by isolating core logic into the `src/` directory.
+
 ### v1.0.0 (25.06.2026)
 - Initial release of the core bootloader
 - Added clean compile-time `PRINT` macro system

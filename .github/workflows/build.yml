@@ -21,10 +21,15 @@ jobs:
         sudo apt update
         sudo apt install -y nasm
 
-    - name: Компилируем загрузчик CatOS
+    - name: Компилируем CatOS (Загрузчик + Ядро)
       run: |
         mkdir -p release_assets
+        # 1. Собираем загрузчик
         nasm -f bin src/boot.asm -o release_assets/boot.bin
+        # 2. Собираем ядро
+        nasm -f bin src/kernel.asm -o release_assets/kernel.bin
+        # 3. Склеиваем их в финальный образ диска для QEMU/Rufus
+        cat release_assets/boot.bin release_assets/kernel.bin > release_assets/os.img
 
     - name: Пересоздать тег main
       shell: bash
@@ -44,8 +49,11 @@ jobs:
         files: release_assets/*
         name: "CatOS - Rolling Release (main)"
         body: |
-          🐾 Самый свежий бинарник операционной системы CatOS.
-          Тег `main` автоматически пересоздается при каждом пуше в репозиторий.
-          Скачайте `boot.bin` и прошейте через Rufus на флешку (MBR/BIOS).
+          🐾 The latest image of the CatOS operating system.
+          The `main` tag is automatically recreated every time the repository is pushed.
+          
+          Inside the archive:
+          - `os.img` - Full operating system image (Bootloader + Kernel). Perfect for QEMU and Rufus!
+          - `boot.bin` and `kernel.bin` - Separate binaries for low-level tests.
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

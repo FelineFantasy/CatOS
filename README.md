@@ -1,4 +1,4 @@
-# CatOS 🐱 v1.0.0
+# CatOS 🐱 v1.2.0
 
 [![Assembly](https://img.shields.io/badge/Assembly-x86-blue)](https://en.wikipedia.org/wiki/X86_assembly_language)
 [![NASM](https://img.shields.io/badge/NASM-2.15+-orange)](https://nasm.us)
@@ -59,6 +59,11 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 
 ## 📦 Changelog
 
+### v1.2.0 (29.06.2026)
+- Implemented a two-stage architecture (separation into Bootloader and Kernel space via int 0x13 interrupt).
+- Added the CLEAR_SCREEN macro for hardware-based clearing of the text buffer.
+- Implemented an interactive pause for input ("Press any key to continue...") before freezing the processor.
+
 ### v1.1.0 (26.06.2026)
 - Added automatic video-mode reset (`int 0x10`) to purge hardware-specific SeaBIOS screen artifacts.
 - Converted `build.sh` line endings to LF for perfect Linux and WSL cross-platform compatibility.
@@ -70,4 +75,4 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 - Added clean compile-time `PRINT` macro system
 - Integrated bulletproof `cli` + `hlt` sleep stack
 - Optimized sector padding up to 510 bytes
-- Verified on real AMD Ryzen bare metal hardware
+- Verified on real AMD Ryzen bare metal hardware.

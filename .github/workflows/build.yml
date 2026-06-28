@@ -47,7 +47,7 @@ jobs:
       with:
         tag_name: main
         files: release_assets/*
-        name: "CatOS - Rolling Release (main)"
+        name: "main"
         overwrite: true
         body: |
           🐾 The latest image of the CatOS operating system.

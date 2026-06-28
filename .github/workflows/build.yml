@@ -48,6 +48,7 @@ jobs:
         tag_name: main
         files: release_assets/*
         name: "CatOS - Rolling Release (main)"
+        overwrite: true
         body: |
           🐾 The latest image of the CatOS operating system.
           The `main` tag is automatically recreated every time the repository is pushed.

@@ -1,4 +1,4 @@
-# CatOS 🐱 v1.2.0
+# CatOS 🐱 v1.3.0
 
 [![Assembly](https://img.shields.io/badge/Assembly-x86-blue)](https://en.wikipedia.org/wiki/X86_assembly_language)
 [![NASM](https://img.shields.io/badge/NASM-2.15+-orange)](https://nasm.us)
@@ -30,7 +30,8 @@ CatOS/
 │   └── workflows/
 │       └── build.yml       # CI/CD Automated Cloud Build
 ├── src/
-│   └── boot.asm            # Core Operating System Source Code
+│   ├── boot.asm            # Core Operating System Bootloader Code
+│   └── kernel.asm          # Main Operating System Kernel Code
 ├── .gitignore              # Hides compilation binaries
 ├── build.bat               # Windows Universal Lazy Script
 ├── build.sh                # Linux Universal Lazy Script
@@ -45,9 +46,9 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 - **Linux/macOS**: Run `./build.sh`
 
 ### Option 2: Flash onto real hardware (Bare Metal)
-1. Go to [Releases] to download the compiled `boot.bin`.
+1. Go to [Releases] to download the compiled `os.img`.
 2. Open **Rufus**, select your USB flash drive.
-3. Choose `boot.bin` (switch filter to "All Files *.*").
+3. Choose `os.img` (switch filter to "All Files *.*").
 4. Set Partition Scheme to **MBR** and Target System to **BIOS (or UEFI-CSM)**.
 5. Click **START**, reboot your PC, mash **F11** and select the USB drive.
 
@@ -58,6 +59,11 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 ---
 
 ## 📦 Changelog
+
+### v1.3.0 (29.06.2026)
+- **Modular architecture**: the monolithic bootloader has been successfully split into separate bootloader (`src/boot.asm`) and kernel (`src/kernel.asm`) spaces using the BIOS interrupt `int 0x13`.
+- **Build automation**: the local scripts for lazy users (`build.bat` / `build.sh`) have been completely rewritten to automatically compile and merge the binaries into a ready-to-test `os.img`. 
+- **Continuous Integration and Continuous Deployment**: The GitHub Actions workflow has been updated to allow seamless compilation at both stages and deployment of a single `os.img` directly to GitHub Releases.
 
 ### v1.2.0 (29.06.2026)
 - Implemented a two-stage architecture (separation into Bootloader and Kernel space via int 0x13 interrupt).

@@ -49,6 +49,7 @@ jobs:
         files: release_assets/*
         name: "main"
         overwrite: true
+        prerelease: false
         body: |
           🐾 The latest image of the CatOS operating system.
           The `main` tag is automatically recreated every time the repository is pushed.

@@ -60,6 +60,10 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 
 ## 📦 Changelog
 
+### v1.3.1 (30.06.2026)
+- **Stack Fix**: Initialized safe stack registers (`ss = 0x0000`, `sp = 0x7C00`) to prevent data corruption during `int 0x13` disk operations.
+- **Far Jump Fix**: Replaced short jump with a proper far jump (`jmp 0x0000:0x1000`) to hard-reset the `CS` segment register for absolute bare-metal compatibility.
+
 ### v1.3.0 (29.06.2026)
 - **Modular architecture**: the monolithic bootloader has been successfully split into separate bootloader (`src/boot.asm`) and kernel (`src/kernel.asm`) spaces using the BIOS interrupt `int 0x13`.
 - **Build automation**: the local scripts for lazy users (`build.bat` / `build.sh`) have been completely rewritten to automatically compile and merge the binaries into a ready-to-test `os.img`. 

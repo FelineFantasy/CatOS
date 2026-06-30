@@ -1,4 +1,4 @@
-# CatOS 🐱 v1.3.0
+# CatOS 🐱 v1.3.2
 
 [![Assembly](https://img.shields.io/badge/Assembly-x86-blue)](https://en.wikipedia.org/wiki/X86_assembly_language)
 [![NASM](https://img.shields.io/badge/NASM-2.15+-orange)](https://nasm.us)
@@ -59,6 +59,10 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 ---
 
 ## 📦 Changelog
+
+### v1.3.2 (30.06.2026)
+- **Drive ID Fix**: Implemented a memory variable `boot_drive` to preserve the BIOS-passed boot drive ID from the `DL` register at initial startup.
+- **Stability Fix**: Restored the exact drive ID to `DL` before the `int 0x13` interrupt call to guarantee absolute data loading compatibility.
 
 ### v1.3.1 (30.06.2026)
 - **Stack Fix**: Initialized safe stack registers (`ss = 0x0000`, `sp = 0x7C00`) to prevent data corruption during `int 0x13` disk operations.

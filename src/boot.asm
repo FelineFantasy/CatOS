@@ -16,14 +16,13 @@ start:
     mov ch, 0
     mov cl, 2
     mov dh, 0
-
     mov dl, [boot_drive]
 
-    mov bx, 0x1000
+    mov bx, 0x7E00
     int 0x13
     jc disk_error
 
-    jmp 0x0000:0x1000
+    jmp 0x0000:0x7E00
 
 disk_error:
     jmp $

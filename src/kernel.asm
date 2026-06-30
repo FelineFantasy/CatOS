@@ -1,4 +1,4 @@
-[org 0x1000]
+[org 0x7e00]
 
 %macro PRINT 1
     mov si, %1
@@ -19,6 +19,10 @@
 %endmacro
 
 kernel_main:
+    xor ax, ax
+    mov ds, ax
+    mov es, ax
+
     CLEAR_SCREEN
 
     PRINT welcome

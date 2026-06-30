@@ -1,4 +1,4 @@
-# CatOS 🐱 v1.3.2
+# CatOS 🐱 v1.4.0
 
 [![Assembly](https://img.shields.io/badge/Assembly-x86-blue)](https://en.wikipedia.org/wiki/X86_assembly_language)
 [![NASM](https://img.shields.io/badge/NASM-2.15+-orange)](https://nasm.us)
@@ -59,6 +59,10 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 ---
 
 ## 📦 Changelog
+
+### v1.4.0 (01.07.2026)
+- **Buffer Address Fix**: Shifted kernel loading destination from `0x1000` to a safe memory area at `0x7E00` (right after the bootloader) to prevent corrupting the BIOS Interrupt Vector Table (IVT).
+- **Segment Alignment**: Updated `[org]` directives and added mandatory segment register initialization (`DS`/`ES` reset to `0`) inside the kernel main entry point to guarantee that string indexing and `lodsb` instructions map to correct memory offsets.
 
 ### v1.3.2 (30.06.2026)
 - **Drive ID Fix**: Implemented a memory variable `boot_drive` to preserve the BIOS-passed boot drive ID from the `DL` register at initial startup.

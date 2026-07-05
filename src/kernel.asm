@@ -1,4 +1,4 @@
-[org 0x7e00]
+[org 0x1000]
 
 %macro PRINT 1
     mov si, %1

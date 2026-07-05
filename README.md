@@ -1,4 +1,4 @@
-# CatOS 🐱 v1.4.0
+# CatOS 🐱 v1.5.0
 
 [![Assembly](https://img.shields.io/badge/Assembly-x86-blue)](https://en.wikipedia.org/wiki/X86_assembly_language)
 [![NASM](https://img.shields.io/badge/NASM-2.15+-orange)](https://nasm.us)
@@ -59,6 +59,9 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 ---
 
 ## 📦 Changelog
+
+### v1.5.0 (05.07.2026)
+- **Kernel Relocation**: Moved kernel load address from `0x7E00` to `0x1000` to avoid overlapping with bootloader and BIOS IVT.
 
 ### v1.4.0 (01.07.2026)
 - **Buffer Address Fix**: Shifted kernel loading destination from `0x1000` to a safe memory area at `0x7E00` (right after the bootloader) to prevent corrupting the BIOS Interrupt Vector Table (IVT).

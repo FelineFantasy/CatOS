@@ -1,4 +1,43 @@
+# Binary assembly files
 *.bin
 *.img
-release_assets/
+*.iso
+*.efi
+*.o
+*.elf
+*.sys
+
+# Temporary files
+*.tmp
 *.log
+*.bak
+*.swp
+*.swo
+*~
+
+# Assembly directories
+release_assets/
+build/
+dist/
+target/
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.code-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Emulator files
+*.qcow2
+*.vmdk
+*.vdi
+*.vhdx
+
+# Logs and debugging files
+*.log
+*.dmp
+*.core

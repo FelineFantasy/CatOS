@@ -60,6 +60,10 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 
 ## 📦 Changelog
 
+### v1.6.0 (06.07.2026)
+- **Disk Read Error Handler**: Added a friendly (and furry) error message for disk read failures.
+- **User Experience**: Instead of hanging, the system now displays a panic cat when the kernel cannot be loaded.
+
 ### v1.5.0 (05.07.2026)
 - **Kernel Relocation**: Moved kernel load address from `0x7E00` to `0x1000` to avoid overlapping with bootloader and BIOS IVT.
 

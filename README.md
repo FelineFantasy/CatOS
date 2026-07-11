@@ -60,6 +60,9 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 
 ## 📦 Changelog
 
+### v1.7.0 (11.07.2026)
+- **Menu Placeholder**: Added a temporary stub screen ("soon...") for future OS features instead of freezing the system immediately after a keypress
+
 ### v1.6.0 (06.07.2026)
 - **Disk Read Error Handler**: Added a friendly (and furry) error message for disk read failures.
 - **User Experience**: Instead of hanging, the system now displays a panic cat when the kernel cannot be loaded.

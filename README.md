@@ -1,4 +1,4 @@
-# CatOS 🐱 v1.7.0
+# CatOS 🐱 v1.7.1
 
 [![Assembly](https://img.shields.io/badge/Assembly-x86-blue)](https://en.wikipedia.org/wiki/X86_assembly_language)
 [![NASM](https://img.shields.io/badge/NASM-2.15+-orange)](https://nasm.us)
@@ -59,6 +59,9 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 ---
 
 ## 📦 Changelog
+
+### v1.7.1 (12.07.2026)
+- **String Corruption Fix**: Added mandatory `cld` instruction at the kernel entry point to reset the CPU Direction Flag (DF). This guarantees that string indexing via `lodsb` moves forward and prevents random text corruption or infinite loops caused by post-BIOS flags.
 
 ### v1.7.0 (11.07.2026)
 - **Menu Placeholder**: Added a temporary stub screen ("soon...") for future OS features instead of freezing the system immediately after a keypress

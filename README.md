@@ -60,6 +60,9 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 
 ## 📦 Changelog
 
+### v1.8.0 (2026-07-13)
+- **Refactor**: Replaced NASM assembly macros with standalone procedures (`call`/`ret`) to improve code modularity.
+
 ### v1.7.1 (12.07.2026)
 - **String Corruption Fix**: Added mandatory `cld` instruction at the kernel entry point to reset the CPU Direction Flag (DF). This guarantees that string indexing via `lodsb` moves forward and prevents random text corruption or infinite loops caused by post-BIOS flags.
 

@@ -1,23 +1,5 @@
 [org 0x1000]
 
-%macro PRINT 1
-    mov si, %1
-%%loop:
-    lodsb
-    test al, al
-    jz %%done
-    mov ah, 0x0E
-    int 0x10
-    jmp %%loop
-%%done:
-%endmacro
-
-%macro CLEAR_SCREEN 0
-    mov ah, 0x00
-    mov al, 0x03
-    int 0x10
-%endmacro
-
 kernel_main:
     cld
 
@@ -25,23 +7,46 @@ kernel_main:
     mov ds, ax
     mov es, ax
 
-    CLEAR_SCREEN
+    call clear_screen
 
-    PRINT welcome
-    PRINT author
-    PRINT press_key
+    mov si, welcome
+    call print_string
+
+    mov si, author
+    call print_string
+
+    mov si, press_key
+    call print_string
 
     mov ah, 0x00
     int 0x16
 
-    CLEAR_SCREEN
+    call clear_screen
 
-    PRINT stub_msg
+    mov si, stub_msg
+    call print_string
 
 hang:
     cli
     hlt
     jmp hang
+
+print_string:
+.print_loop:
+    lodsb
+    test al, al
+    jz .done
+    mov ah, 0x0E
+    int 0x10
+    jmp .print_loop
+.done:
+    ret
+
+clear_screen:
+    mov ah, 0x00
+    mov al, 0x03
+    int 0x10
+    ret
 
 welcome   db "Welcome to my OS!", 0x0D, 0x0A, 0
 author    db "Created by FelineFantasy", 0x0D, 0x0A, 0

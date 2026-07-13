@@ -1,4 +1,4 @@
-# CatOS 🐱 v1.7.1
+# CatOS 🐱 v1.8.0
 
 [![Assembly](https://img.shields.io/badge/Assembly-x86-blue)](https://en.wikipedia.org/wiki/X86_assembly_language)
 [![NASM](https://img.shields.io/badge/NASM-2.15+-orange)](https://nasm.us)

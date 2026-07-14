@@ -29,7 +29,10 @@ disk_error:
     int 0x10
 
     mov si, panic_cat
+    call print_string
+    jmp $
 
+print_string:
 .print_loop:
     lodsb
     test al, al
@@ -38,14 +41,14 @@ disk_error:
     int 0x10
     jmp .print_loop
 .done:
-    jmp $
+    ret
 
 boot_drive db 0
 
 panic_cat:
-    db "  /\_/\ ", 0x0D, 0x0A
-    db " ( o.o )  >  Disk read error!", 0x0D, 0x0A
-    db "  > ^ < ", 0x0D, 0x0A, 0
+    db "     /\_/\", 0x0D, 0x0A
+    db "    ( o.o ) > Disk read error!", 0x0D, 0x0A
+    db "     > ^ <", 0x0D, 0x0A, 0
 
 times 510 - ($ - $$) db 0
 dw 0xaa55

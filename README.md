@@ -1,4 +1,4 @@
-# CatOS 🐱 v1.8.0
+# CatOS 🐱 v1.9.0
 
 [![Assembly](https://img.shields.io/badge/Assembly-x86-blue)](https://en.wikipedia.org/wiki/X86_assembly_language)
 [![NASM](https://img.shields.io/badge/NASM-2.15+-orange)](https://nasm.us)
@@ -59,6 +59,9 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 ---
 
 ## 📦 Changelog
+
+### v1.9.0 (2026-07-14)
+- **Architecture**: Modularized the codebase by moving common BIOS routines (`print_string`, `clear_screen`) into a standalone `src/functions.asm` library, linked via `%include`.
 
 ### v1.8.0 (2026-07-13)
 - **Refactor**: Replaced NASM assembly macros with standalone procedures (`call`/`ret`) to improve code modularity.

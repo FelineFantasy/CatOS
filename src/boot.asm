@@ -32,23 +32,14 @@ disk_error:
     call print_string
     jmp $
 
-print_string:
-.print_loop:
-    lodsb
-    test al, al
-    jz .done
-    mov ah, 0x0E
-    int 0x10
-    jmp .print_loop
-.done:
-    ret
-
 boot_drive db 0
 
 panic_cat:
-    db "     /\_/\", 0x0D, 0x0A
-    db "    ( o.o ) > Disk read error!", 0x0D, 0x0A
-    db "     > ^ <", 0x0D, 0x0A, 0
+    db "   /\_/\", 0x0D, 0x0A
+    db "  ( o.o ) > Disk read error!", 0x0D, 0x0A
+    db "   > ^ <", 0x0D, 0x0A, 0
+
+%include "src/api/io/print_string.asm"
 
 times 510 - ($ - $$) db 0
 dw 0xaa55

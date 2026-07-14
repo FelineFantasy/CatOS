@@ -1,4 +1,4 @@
-# CatOS 🐱 v1.10.0
+# CatOS 🐱 v1.11.0
 
 [![Assembly](https://img.shields.io/badge/Assembly-x86-blue)](https://en.wikipedia.org/wiki/X86_assembly_language)
 [![NASM](https://img.shields.io/badge/NASM-2.15+-orange)](https://nasm.us)
@@ -31,10 +31,13 @@ CatOS/
 │       └── build.yml       # CI/CD Automated Cloud Build
 ├── src/
 │   ├── api/
-│   │   └── functions.asm   # System Call API and Shared Functions
-│   ├── boot.asm            # Core Operating System Bootloader Code
+│   │   ├── io/
+│   │   │   ├── clear_screen.asm   # Video Buffer Clearing Routine
+│   │   │   └── print_string.asm   # Teletype String Output Routine
+│   │   └── io.asm          # Core OS API & Submodule Dispatcher
+│   ├── boot.asm            # MBR Bootloader Code (Sector 1)
 │   └── kernel.asm          # Main Operating System Kernel Code
-├── .gitignore              # Hides compilation binaries
+├── .gitignore              # Hides compilation binaries & venv
 ├── LICENSE                 # Project License Terms
 ├── build.bat               # Windows Universal Lazy Script
 ├── build.sh                # Linux Universal Lazy Script
@@ -63,13 +66,17 @@ Make sure **NASM** and **QEMU** are added to your System PATH variables, then si
 
 ## 📦 Changelog
 
-### v1.10.0 (2026-07-14)
+### v1.11.0 (2026.07.15)
+- **Architecture**: Implemented a scalable layout dispatcher (`src/api/sys_api.asm`) to dynamic-link individual submodules via relative `%include` tracking.
+- **Granularization**: Separated monolithic functions into highly isolated runtime procedures inside the `src/api/io/` directory (`clear_screen.asm`, `print_string.asm`).
+
+### v1.10.0 (2026.07.14)
 - **Architecture**: Modularized the codebase by moving common BIOS routines (`print_string`, `clear_screen`) into an isolated System OS API directory (`src/api/functions.asm`), linked via `%include`.
 
-### v1.9.0 (2026-07-14)
+### v1.9.0 (2026.07.14)
 - **Architecture**: Modularized the codebase by moving common BIOS routines (`print_string`, `clear_screen`) into a standalone `src/functions.asm` library, linked via `%include`.
 
-### v1.8.0 (2026-07-13)
+### v1.8.0 (2026.07.13)
 - **Refactor**: Replaced NASM assembly macros with standalone procedures (`call`/`ret`) to improve code modularity.
 
 ### v1.7.1 (12.07.2026)

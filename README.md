@@ -30,9 +30,12 @@ CatOS/
 │   └── workflows/
 │       └── build.yml       # CI/CD Automated Cloud Build
 ├── src/
+│   ├── api/
+│   │   └── functions.asm   # System Call API and Shared Functions
 │   ├── boot.asm            # Core Operating System Bootloader Code
 │   └── kernel.asm          # Main Operating System Kernel Code
 ├── .gitignore              # Hides compilation binaries
+├── LICENSE                 # Project License Terms
 ├── build.bat               # Windows Universal Lazy Script
 ├── build.sh                # Linux Universal Lazy Script
 └── README.md               # Documentation

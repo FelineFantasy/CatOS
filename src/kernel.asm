@@ -1,8 +1,11 @@
 [org 0x1000]
 
+%define NEED_CLEAR_SCREEN
+%define NEED_PRINT_STRING
+%include "src/api/io.asm"
+
 kernel_main:
     cld
-
     xor ax, ax
     mov ds, ax
     mov es, ax
@@ -35,7 +38,5 @@ welcome   db "Welcome to my OS!", 0x0D, 0x0A, 0
 author    db "Created by FelineFantasy", 0x0D, 0x0A, 0
 press_key db 0x0D, 0x0A, "Press any key to continue...", 0x0D, 0x0A, 0
 stub_msg  db "soon...", 0x0D, 0x0A, 0
-
-%include "src/api/io.asm"
 
 times 512 - ($ - $$) db 0

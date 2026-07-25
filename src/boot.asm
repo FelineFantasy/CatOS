@@ -1,5 +1,8 @@
 [org 0x7c00]
 
+%define NEED_PRINT_STRING
+%include "src/api/io.asm"
+
 start:
     mov [boot_drive], dl
 
@@ -39,7 +42,5 @@ panic_cat:
     db "  ( o.o ) > Disk read error!", 0x0D, 0x0A
     db "   > ^ <", 0x0D, 0x0A, 0
 
-%include "src/api/io/print_string.asm"
-
 times 510 - ($ - $$) db 0
-dw 0xaa55
+dw 0xAA55

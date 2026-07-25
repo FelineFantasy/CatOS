@@ -31,10 +31,7 @@ CatOS/
 │       └── build.yml       # CI/CD Automated Cloud Build
 ├── src/
 │   ├── api/
-│   │   ├── io/
-│   │   │   ├── clear_screen.asm   # Video Buffer Clearing Routine
-│   │   │   └── print_string.asm   # Teletype String Output Routine
-│   │   └── io.asm          # Core OS API & Submodule Dispatcher
+│   │   └── io.asm          # I/O functions with conditional inclusion
 │   ├── boot.asm            # MBR Bootloader Code (Sector 1)
 │   └── kernel.asm          # Main Operating System Kernel Code
 ├── .gitignore              # Hides compilation binaries & venv

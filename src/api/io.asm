@@ -17,3 +17,10 @@ print_string:
 .done:
     ret
 %endif
+
+%ifdef NEED_READ_KEY
+read_key:
+    mov ah, 0x00
+    int 0x16
+    ret
+%endif

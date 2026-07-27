@@ -2,6 +2,7 @@
 
 %define NEED_CLEAR_SCREEN
 %define NEED_PRINT_STRING
+%define NEED_READ_KEY
 %include "src/api/io.asm"
 
 kernel_main:
@@ -21,8 +22,7 @@ kernel_main:
     mov si, press_key
     call print_string
 
-    mov ah, 0x00
-    int 0x16
+    call read_key
 
     call clear_screen
 

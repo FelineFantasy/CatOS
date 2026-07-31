@@ -27,8 +27,9 @@ A hardcore, minimalist 16-bit real-mode operating system bootloader written comp
 ```text
 CatOS/
 ├── .github/
-│   └── workflows/
-│       └── build.yml       # CI/CD Automated Cloud Build
+│   ├── workflows/
+│   │   └── build.yml       # CI/CD Automated Cloud Build
+│   └── FUNDING.yml         # Support link for DonationAlerts
 ├── src/
 │   ├── api/
 │   │   └── io.asm          # I/O functions with conditional inclusion

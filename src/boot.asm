@@ -15,7 +15,7 @@ start:
     sti
 
     mov ah, 0x02
-    mov al, 1
+    mov al, 3
     mov ch, 0
     mov cl, 2
     mov dh, 0
@@ -27,10 +27,6 @@ start:
     jmp 0x0000:0x1000
 
 disk_error:
-    mov ah, 0x00
-    mov al, 0x03
-    int 0x10
-
     mov si, panic_cat
     call print_string
     jmp $

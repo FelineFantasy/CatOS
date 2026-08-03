@@ -38,3 +38,5 @@ welcome   db "Welcome to my OS!", 0x0D, 0x0A, 0
 author    db "Created by FelineFantasy", 0x0D, 0x0A, 0
 press_key db 0x0D, 0x0A, "Press any key to continue...", 0x0D, 0x0A, 0
 stub_msg  db "soon...", 0x0D, 0x0A, 0
+
+times 1536 - ($ - $$) db 0

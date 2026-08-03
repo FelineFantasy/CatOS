@@ -7,9 +7,13 @@
 
 kernel_main:
     cld
+    
     xor ax, ax
     mov ds, ax
     mov es, ax
+
+    mov ss, ax
+    mov sp, 0x0F00
 
     call clear_screen
 

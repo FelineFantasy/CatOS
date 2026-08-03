@@ -8,12 +8,13 @@ clear_screen:
 
 %ifdef NEED_PRINT_STRING
 print_string:
+.loop:
     lodsb
     test al, al
     jz .done
     mov ah, 0x0E
     int 0x10
-    jmp print_string
+    jmp .loop
 .done:
     ret
 %endif

@@ -16,6 +16,7 @@ fi
 
 echo "[3/3] Gluing into os.img..."
 cat boot.bin kernel.bin > os.img
+truncate -s 1440k os.img
 
 echo "[SUCCESS] Launching in QEMU..."
 qemu-system-x86_64 -drive format=raw,file=os.img

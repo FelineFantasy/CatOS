@@ -1,8 +1,5 @@
 [org 0x7c00]
 
-%define NEED_PRINT_STRING
-%include "src/api/io.asm"
-
 start:
     mov [boot_drive], dl
 
@@ -27,16 +24,11 @@ start:
     jmp 0x0000:0x1000
 
 disk_error:
-    mov si, panic_cat
-    call print_string
-    jmp $
+    cli
+    hlt
+    jmp disk_error
 
 boot_drive db 0
-
-panic_cat:
-    db "   /\_/\", 0x0D, 0x0A
-    db "  ( o.o ) > Disk read error!", 0x0D, 0x0A
-    db "   > ^ <", 0x0D, 0x0A, 0
 
 times 510 - ($ - $$) db 0
 dw 0xAA55

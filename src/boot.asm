@@ -33,7 +33,10 @@ disk_error:
     jmp .halt_system
 
 boot_drive db 0
-panic_cat  db 0x0D, 0x0A, "  /\_/\  ", 0x0D, 0x0A, " ( o.o ) > Disk read error!", 0x0D, 0x0A, "  > ^ <  ", 0x0D, 0x0A, 0
+
+panic_cat  db "  /\_/\  ", 0x0D, 0x0A
+           db " ( o.o ) > Disk read error!", 0x0D, 0x0A
+           db "  > ^ <  ", 0x0D, 0x0A, 0
 
 %define NEED_PRINT_STRING
 %include "src/api/io.asm"

@@ -34,6 +34,9 @@ read_and_echo_char:
     cmp al, 0x0D
     je .handle_enter
 
+    cmp al, 0x08
+    je .handle_backspace
+
     mov ah, 0x0E
     mov bh, 0x00
     int 0x10
@@ -44,6 +47,18 @@ read_and_echo_char:
     mov al, 0x0D
     int 0x10
     mov al, 0x0A
+    int 0x10
+    ret
+
+.handle_backspace:
+    mov ah, 0x0E
+    mov al, 0x08
+    int 0x10
+
+    mov al, ' '
+    int 0x10
+
+    mov al, 0x08
     int 0x10
     ret
 %endif

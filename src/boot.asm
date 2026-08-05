@@ -24,11 +24,19 @@ start:
     jmp 0x0000:0x1000
 
 disk_error:
+    mov si, panic_cat
+    call print_string
+
+.halt_system:
     cli
     hlt
-    jmp disk_error
+    jmp .halt_system
 
 boot_drive db 0
+panic_cat  db 0x0D, 0x0A, "  /\_/\  ", 0x0D, 0x0A, " ( o.o ) > Disk read error!", 0x0D, 0x0A, "  > ^ <  ", 0x0D, 0x0A, 0
+
+%define NEED_PRINT_STRING
+%include "src/api/io.asm"
 
 times 510 - ($ - $$) db 0
 dw 0xAA55

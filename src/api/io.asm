@@ -25,3 +25,15 @@ read_key:
     int 0x16
     ret
 %endif
+
+%ifdef NEED_READ_AND_ECHO_CHAR
+read_and_echo_char:
+    mov ah, 0x00
+    int 0x16
+
+    mov ah, 0x0E
+    mov bh, 0x00
+    mov bl, 0x07
+    int 0x10
+    ret
+%endif

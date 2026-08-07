@@ -33,11 +33,6 @@ input_loop:
     call read_and_echo_char
     jmp input_loop
 
-hang:
-    cli
-    hlt
-    jmp hang
-
 welcome db "Welcome to my OS!", 0x0D, 0x0A, 0
 author  db "Created by FelineFantasy", 0x0D, 0x0A, 0
 press_key db 0x0D, 0x0A, "Press any key to continue...", 0x0D, 0x0A, 0

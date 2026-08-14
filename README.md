@@ -63,7 +63,18 @@ Option 2: Flash onto real hardware (Bare Metal)
 4. Set Partition Scheme to MBR and Target System to BIOS (or UEFI-CSM).
 5. Click START, reboot your PC, mash F11 and select the USB drive.
 
----
+## 💖 Support the Project
+
+If you enjoy **CatOS** and want to help keep the project alive, you can support me here:
+
+[![DonationAlerts](https://img.shields.io/badge/DonationAlerts-Support-blue.svg)](https://www.donationalerts.com/r/felinefantasy)
+
+Your support helps me:
+- 🖥️ Keep developing CatOS
+- 🐱 Add new features and improve bootloader
+- ☕ Stay awake while coding at 4 AM
+
+Every little bit is appreciated! ❤️
 
 👤 Author
 

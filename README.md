@@ -18,12 +18,12 @@ A hardcore, minimalist 16-bit real-mode operating system bootloader written comp
 
 CatOS is an independent bootloader that takes full control of the CPU immediately after the BIOS POST screen. It does not rely on heavy modern loaders like GRUB or any third-party kernels.
 
-Technical Details:
+### Technical Details:
 
-· 🛠️ Pure Assembly: Written 100% in 16-bit x86 Real Mode NASM.
-· ⚡ BIOS Interruption Free: Renders text cleanly without risking typical hardware-specific screen clearing conflicts on custom motherboards.
-· 🛑 Safe Halting: Implements a strict cli + hlt loop. It completely disables hardware interrupts, safely freezing the CPU into a absolute zero-power saving state, preventing toxic boot loops.
-· 💾 512-Byte Hard Limit: Perfectly optimized to fit into the master boot record (Sector 1) with the mandatory 0xAA55 boot signature.
+- 🛠️ **Pure Assembly:** Written 100% in 16-bit x86 Real Mode NASM.
+- ⚡ **BIOS Interruption Free:** Renders text cleanly without risking typical hardware-specific screen clearing conflicts on custom motherboards.
+- 🛑 **Safe Halting:** Implements a strict `cli` + `hlt` loop. It completely disables hardware interrupts, safely freezing the CPU into an absolute zero-power saving state, preventing toxic boot loops.
+- 💾 **512-Byte Hard Limit:** Perfectly optimized to fit into the master boot record (Sector 1) with the mandatory `0xAA55` boot signature.
 
 📁 Project Structure
 

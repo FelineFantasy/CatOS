@@ -40,8 +40,10 @@ CatOS/
 │   └── kernel.asm          # Main Operating System Kernel Code
 ├── .gitignore              # Hides compilation binaries & venv
 ├── LICENSE                 # Project License Terms
-├── build.bat               # Windows Universal Lazy Script
-├── build.sh                # Linux Universal Lazy Script
+├── build.bat               # Windows Compilation Script
+├── build.sh                # Linux Compilation Script
+├── run.bat                 # Windows QEMU Launch Script
+├── run.sh                  # Linux QEMU Launch Script
 ├── README.md               # Documentation (English)
 └── README.ru.md            # Documentation (Russian)
 ```

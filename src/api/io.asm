@@ -53,6 +53,7 @@ read_key:
 ; Backspace (character deletion)
 ; Uses: BIOS INT 0x16, INT 0x10
 ; ---------------------------------------------
+%ifdef NEED_READ_AND_ECHO_CHAR
 read_and_echo_char:
     mov ah, 0x00
     int 0x16
@@ -85,4 +86,5 @@ read_and_echo_char:
     mov al, 0x08
     int 0x10
     ret
+%endif
 

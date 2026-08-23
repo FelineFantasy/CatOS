@@ -11,8 +11,6 @@ kernel_main:
     mov ss, ax
     mov sp, 0x7F00
 
-    call clear_screen
-
     mov si, welcome
     call print_string
 
@@ -38,7 +36,6 @@ author  db "Created by FelineFantasy", 0x0D, 0x0A, 0
 press_key db 0x0D, 0x0A, "Press any key to continue...", 0x0D, 0x0A, 0
 stub_msg  db "soon...", 0x0D, 0x0A, 0
 
-%define NEED_CLEAR_SCREEN
 %define NEED_PRINT_STRING
 %define NEED_READ_KEY
 %define NEED_READ_AND_ECHO_CHAR

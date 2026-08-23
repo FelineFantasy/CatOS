@@ -11,6 +11,8 @@ start:
     mov sp, 0x7C00
     sti
 
+    call clear_screen
+
     mov ah, 0x02
     mov al, 4
     mov ch, 0
@@ -38,6 +40,7 @@ panic_cat  db "  /\_/\  ", 0x0D, 0x0A
            db " ( o.o ) > Disk read error!", 0x0D, 0x0A
            db "  > ^ <  ", 0x0D, 0x0A, 0
 
+%define NEED_CLEAR_SCREEN
 %define NEED_PRINT_STRING
 %include "src/api/io.asm"
 

@@ -87,4 +87,3 @@ read_and_echo_char:
     int 0x10
     ret
 %endif
-

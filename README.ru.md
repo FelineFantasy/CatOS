@@ -40,8 +40,10 @@ CatOS/
 │   └── kernel.asm          # Основной код ядра ОС
 ├── .gitignore              # Скрывает бинарники сборки и venv
 ├── LICENSE                 # Условия лицензии проекта
-├── build.bat               # Универсальный ленивый скрипт для Windows
-├── build.sh                # Универсальный ленивый скрипт для Linux
+├── build.bat               # Скрипт сборки для Windows
+├── build.sh                # Скрипт сборки для Linux
+├── run.bat                 # Скрипт запуска QEMU для Windows
+├── run.sh                  # Скрипт запуска QEMU для Linux
 ├── README.md               # Документация (Английский)
 └── README.ru.md            # Документация (Русский)
 ```

@@ -69,7 +69,7 @@ CatOS/
 
 Если тебе нравится **CatOS** и ты хочешь помочь проекту жить дальше, ты можешь поддержать меня здесь:
 
-[![DonationAlerts](https://img.shields.io/badge/DonationAlerts-поддержать-blue.svg)](https://www.donationalerts.com/r/felinefantasy)
+[![DonationAlerts](https://img.shields.io/badge/DonationAlerts-Поддержать-blue.svg)](https://www.donationalerts.com/r/felinefantasy)
 
 Твоя поддержка поможет мне:
 - 🖥️ Продолжать разработку CatOS

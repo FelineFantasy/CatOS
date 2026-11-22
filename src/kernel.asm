@@ -21,7 +21,11 @@ main_loop:
     call print_string
 
     call read_key
+    test al, al             ; extended key (arrows, F-keys) -> ignore
+    jz main_loop
+
     push ax                 ; newline clobbers AL — keep the key
+    call print_char         ; echo the pressed key
     call newline
     pop ax
 
@@ -86,6 +90,7 @@ msg_halt db "system halted", 0x0D, 0x0A, 0
 
 %define NEED_CLEAR_SCREEN
 %define NEED_PRINT_STRING
+%define NEED_PRINT_CHAR
 %define NEED_NEWLINE
 %define NEED_READ_KEY
 %include "src/api/io.asm"

@@ -36,6 +36,19 @@ print_string:
 %endif
 
 ; ---------------------------------------------
+; print_char — prints a single character
+; Input: AL = character
+; Clobbers: AH
+; Uses: BIOS INT 0x10, AH=0x0E
+; ---------------------------------------------
+%ifdef NEED_PRINT_CHAR
+print_char:
+    mov ah, 0x0E
+    int 0x10
+    ret
+%endif
+
+; ---------------------------------------------
 ; newline — prints CR + LF (moves to a new line)
 ; Clobbers: AL, AH
 ; Uses: BIOS INT 0x10, AH=0x0E

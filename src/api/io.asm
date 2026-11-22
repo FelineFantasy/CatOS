@@ -19,6 +19,7 @@ clear_screen:
 ; ---------------------------------------------
 ; print_string — prints a null-terminated string
 ; Input: SI = string address
+; Clobbers: AL, AH, SI
 ; Uses: BIOS INT 0x10, AH=0x0E
 ; ---------------------------------------------
 %ifdef NEED_PRINT_STRING
@@ -31,6 +32,21 @@ print_string:
     int 0x10
     jmp .loop
 .done:
+    ret
+%endif
+
+; ---------------------------------------------
+; newline — prints CR + LF (moves to a new line)
+; Clobbers: AL, AH
+; Uses: BIOS INT 0x10, AH=0x0E
+; ---------------------------------------------
+%ifdef NEED_NEWLINE
+newline:
+    mov ah, 0x0E
+    mov al, 0x0D
+    int 0x10
+    mov al, 0x0A
+    int 0x10
     ret
 %endif
 

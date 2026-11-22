@@ -11,8 +11,6 @@ start:
     mov sp, 0x7C00
     sti
 
-    call clear_screen
-
     mov ah, 0x02
     mov al, 4
     mov ch, 0
